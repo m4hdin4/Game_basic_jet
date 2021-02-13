@@ -4,38 +4,68 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    Rigidbody rigidbody;
+    [SerializeField]float rcsTrust = 250f;
+    [SerializeField] float mainTrust = 50f;
+    Rigidbody rigidBody;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        Trust();
+        Rotate();
     }
 
-    void ProcessInput(){
+    private void Trust()
+    {
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddRelativeForce(Vector3.up);
+            rigidBody.AddRelativeForce(Vector3.up * mainTrust);
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
-        }else{
+        }
+        else
+        {
             audioSource.Stop();
         }
+    }
+
+    void Rotate()
+    {
+        float rotateSpeed = Time.deltaTime * rcsTrust;
+        rigidBody.freezeRotation = true;
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward , Time.deltaTime * 100);
-        }else if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.forward * rotateSpeed);
+        }
+        else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward , Time.deltaTime * 100);
+            transform.Rotate(-Vector3.forward * rotateSpeed);
+        }
+        rigidBody.freezeRotation = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("it's OK");
+                break;
+            default:
+                print("you died!");
+                break;
         }
     }
+
+
+
 }
