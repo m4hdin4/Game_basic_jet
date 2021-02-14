@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: rcsTrust
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1074384872, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
+      propertyPath: mainThrust
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 636206620946003920, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.2

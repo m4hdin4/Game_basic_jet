@@ -425,7 +425,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1074384872, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
       propertyPath: mainThrust
-      value: 20
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1074384872, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
       propertyPath: levelLoadDelay
@@ -564,8 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 15}
-  speed: 3
-  movementFactor: 0
+  period: 2
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 6475531568823805108, guid: 8295a9dc1188b194c982de46f55fcc1c, type: 3}
@@ -667,8 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 15}
-  speed: 3
-  movementFactor: 0
+  period: 2
 --- !u!1001 &925870140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1155,8 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 0, y: 0, z: 15}
-  speed: 3
-  movementFactor: 0
+  period: 2
 --- !u!1001 &1641208068
 PrefabInstance:
   m_ObjectHideFlags: 0

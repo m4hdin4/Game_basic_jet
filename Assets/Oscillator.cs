@@ -7,24 +7,28 @@ public class Oscillator : MonoBehaviour
 {
 
     [SerializeField] Vector3 movementVector;
-    [SerializeField] float speed = 2f;
-    [Range(0, 1)] [SerializeField] float movementFactor;
-    Vector3 startPos;
-    // Start is called before the first frame update
+    [SerializeField] float period = 2f;
+
+    float movementFactor; // 0 for not moved, 1 for fully moved.
+    Vector3 startingPos;
+
+    // Use this for initialization
     void Start()
     {
-        startPos = transform.position;
+        startingPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(speed <= Mathf.Epsilon)
-        {
-            return;
-        }
-        float rotate = (Time.time / speed) * 6.28f;
-        movementFactor = Mathf.Sin(rotate) / 2 + 0.5f;
-        transform.position = startPos + (movementFactor * movementVector);
+        if (period <= Mathf.Epsilon) { return; } // protect against period is zero
+        float cycles = Time.time / period; // grows continually from 0
+
+        const float tau = Mathf.PI * 2f; // about 6.28
+        float rawSinWave = Mathf.Sin(cycles * tau); // goes from -1 to +1
+
+        movementFactor = rawSinWave / 2f + 0.5f;
+        Vector3 offset = movementFactor * movementVector;
+        transform.position = startingPos + offset;
     }
 }

@@ -430,7 +430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1074384872, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
       propertyPath: mainThrust
-      value: 20
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1074384872, guid: 3df7df958f6d1544bbb295833ab37501, type: 3}
       propertyPath: levelLoadDelay
@@ -1236,8 +1236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVector: {x: 15, y: 0, z: 0}
-  speed: 2
-  movementFactor: 0
+  period: 2
 --- !u!4 &1938199192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 561171771547477346, guid: 76b2fa1bbe2db6648ae78f4bdcce8d3f, type: 3}
